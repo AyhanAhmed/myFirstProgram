@@ -1,7 +1,67 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 
 public class Main {
+
+    public static ArrayList<String> addProductName(ArrayList<String> productName) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the name of product: ");
+        String name = input.nextLine();
+        if (productName.contains(name)) {
+            System.out.println("Existing product name.");
+        } else {
+            System.out.println("New product name.");
+            productName.add(name);
+        }
+        return productName;
+
+    }
+
+    public static ArrayList<String> addDateOfExpiry(ArrayList<String> datesOfExpiry) {
+        Scanner input = new Scanner(System.in);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        dateFormat.setLenient(false);
+        Date expirationDate = null;
+        boolean validFormat = false;
+        do {
+            System.out.println("Enter the expiry date of product (dd-MM-yyyy): ");
+            String inputDateOfExpiry = input.nextLine();
+            try {
+                expirationDate = dateFormat.parse(inputDateOfExpiry);
+                validFormat = true;
+            } catch (ParseException e) {
+                System.out.println("Invalid date format.");
+            }
+        } while (!validFormat);
+        datesOfExpiry.add(String.valueOf(String.format("%tD", expirationDate)));
+        return datesOfExpiry;
+    }
+
+    public static ArrayList<String> addEntryDates(ArrayList<String> entryDates) {
+        Scanner input = new Scanner(System.in);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        dateFormat.setLenient(false);
+        boolean validFormat = false;
+        Date entryDate = null;
+        validFormat = false;
+        do {
+            System.out.println("Enter the date of dilivery of product (dd-MM-yyyy): ");
+            String inputEntryDate = input.nextLine();
+            try {
+                entryDate = dateFormat.parse(inputEntryDate);
+                validFormat = true;
+            } catch (ParseException e) {
+                System.out.println("Invalid date format.");
+            }
+        } while (!validFormat);
+        entryDates.add(String.format("%tD", entryDate));
+        return entryDates;
+    }
+
     public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
             , ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                  ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
