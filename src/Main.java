@@ -61,6 +61,45 @@ public class Main {
         entryDates.add(String.format("%tD", entryDate));
         return entryDates;
     }
+    public static ArrayList<String> addManufacturerName(ArrayList<String> manufacturerName) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the name of manufacturer of the product: ");
+        String manufacturer = input.nextLine();
+        manufacturerName.add(manufacturer);
+        return manufacturerName;
+    }
+
+    public static ArrayList<String> addUnitOfProduct(ArrayList<String> unitOfProduct) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the units of the product (kilograms, liters, pieces etc.: ");
+        String unit = input.nextLine();
+        unitOfProduct.add(unit);
+        return unitOfProduct;
+    }
+
+    public static ArrayList<String> addQuantityOfProduct(ArrayList<String> quantityOfProduct) {
+        Scanner input = new Scanner(System.in);
+        double quantity = 0;
+        boolean checkNumber = false;
+        do {
+            System.out.println("Enter the quantity of the product: ");
+            try {
+                quantity = input.nextDouble();
+                if (quantity > 0) {
+                    checkNumber = true;
+                    break;
+                } else {
+                    System.out.println("Invalid number.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid number.");
+            }
+        } while (!checkNumber);
+
+        quantityOfProduct.add(String.valueOf(quantity));
+        return quantityOfProduct;
+    }
+
 
     public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
             , ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
