@@ -137,22 +137,50 @@ public class Main {
         productComment.add(comment);
         return productComment;
     }
-
-
     public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
             , ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                  ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
-        System.out.println();
+        try {
+            System.out.println("Available products in the warehouse:");
+            stockAvailability.add(productName);
+            stockAvailability.add(datesOfExpiry);
+            stockAvailability.add(entryDates);
+            stockAvailability.add(manufacturerName);
+            stockAvailability.add(unitOfProduct);
+            stockAvailability.add((quantityOfProduct));
+            stockAvailability.add(locationOfProduct);
+            stockAvailability.add(maxQquantityOfProduct);
+            stockAvailability.add(productComment);
+            System.out.println("Name of product   | Expiry date  | Entry date | Manufacturer | Unit | Stock | Position | Available items at shelf | Comment | ");
+            if (stockAvailability == null) {
+                System.out.println("The list is empty.");
+            } else {
+                for (int i = 0; i <= countDeliveries - 1; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        System.out.print(stockAvailability.get(j).get(i));
+                        System.out.print(" | ");
+                    }
+                    System.out.println();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Missing product.");
+        }
     }
+
 
     public static void addNewDilivery(ArrayList<ArrayList<String>> stockAvailability,
                                       ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates, ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                       ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
-        System.out.println();
-    }
-
-    public static void listDeliveriesForPeriod(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> entryDates) {
-        System.out.println();
+        addProductName(productName);
+        addDateOfExpiry(datesOfExpiry);
+        addEntryDates(entryDates);
+        addManufacturerName(manufacturerName);
+        addUnitOfProduct(unitOfProduct);
+        addQuantityOfProduct(quantityOfProduct);
+        addLocationOfProduct(locationOfProduct);
+        addMaxQuantityOfProduct(maxQquantityOfProduct);
+        addProductComment(productComment);
     }
 
 
