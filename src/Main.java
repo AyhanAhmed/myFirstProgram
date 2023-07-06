@@ -99,6 +99,44 @@ public class Main {
         quantityOfProduct.add(String.valueOf(quantity));
         return quantityOfProduct;
     }
+    public static ArrayList<String> addLocationOfProduct(ArrayList<String> locationOfProduct) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the location of the product in the warehouse (section/shelf/number): ");
+        String location = input.nextLine();
+        locationOfProduct.add(location);
+        return locationOfProduct;
+    }
+
+    public static ArrayList<String> addMaxQuantityOfProduct(ArrayList<String> maxQquantityOfProduct) {
+        Scanner input = new Scanner(System.in);
+        boolean checkNumber = false;
+        int maxQuantity = 0;
+        checkNumber = false;
+        do {
+            System.out.println("Enter the maximum quantity of the product on the shelf: ");
+            try {
+                maxQuantity = input.nextInt();
+                if (maxQuantity > 0) {
+                    checkNumber = true;
+                    break;
+                } else {
+                    System.out.println("Invalid number.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid number.");
+            }
+        } while (!checkNumber);
+        maxQquantityOfProduct.add(String.valueOf(maxQuantity));
+        return maxQquantityOfProduct;
+    }
+
+    public static ArrayList<String> addProductComment(ArrayList<String> productComment) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a product or delivery comment: ");
+        String comment = input.nextLine();
+        productComment.add(comment);
+        return productComment;
+    }
 
 
     public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
