@@ -137,48 +137,89 @@ public class Main {
         productComment.add(comment);
         return productComment;
     }
-
-
+<<<<<<<<< Temporary merge branch 1
     public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
             , ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                  ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
-        System.out.println();
+        try {
+            System.out.println("Available products in the warehouse:");
+            stockAvailability.add(productName);
+            stockAvailability.add(datesOfExpiry);
+            stockAvailability.add(entryDates);
+            stockAvailability.add(manufacturerName);
+            stockAvailability.add(unitOfProduct);
+            stockAvailability.add((quantityOfProduct));
+            stockAvailability.add(locationOfProduct);
+            stockAvailability.add(maxQquantityOfProduct);
+            stockAvailability.add(productComment);
+            System.out.println("Name of product   | Expiry date  | Entry date | Manufacturer | Unit | Stock | Position | Available items at shelf | Comment | ");
+            if (stockAvailability == null) {
+                System.out.println("The list is empty.");
+            } else {
+                for (int i = 0; i <= countDeliveries - 1; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        System.out.print(stockAvailability.get(j).get(i));
+                        System.out.print(" | ");
+                    }
+                    System.out.println();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Missing product.");
+        }
     }
+
+
+=========
+>>>>>>>>> Temporary merge branch 2
+    public static void listItems(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates
+            , ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
+                                 ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
+        try {
+            System.out.println("Available products in the warehouse:");
+            stockAvailability.add(productName);
+            stockAvailability.add(datesOfExpiry);
+            stockAvailability.add(entryDates);
+            stockAvailability.add(manufacturerName);
+            stockAvailability.add(unitOfProduct);
+            stockAvailability.add((quantityOfProduct));
+            stockAvailability.add(locationOfProduct);
+            stockAvailability.add(maxQquantityOfProduct);
+            stockAvailability.add(productComment);
+            System.out.println("Name of product   | Expiry date  | Entry date | Manufacturer | Unit | Stock | Position | Available items at shelf | Comment | ");
+            if (stockAvailability == null) {
+                System.out.println("The list is empty.");
+            } else {
+                for (int i = 0; i <= countDeliveries - 1; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        System.out.print(stockAvailability.get(j).get(i));
+                        System.out.print(" | ");
+                    }
+                    System.out.println();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Missing product.");
+        }
+    }
+
 
     public static void addNewDilivery(ArrayList<ArrayList<String>> stockAvailability,
                                       ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates, ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                       ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
-        System.out.println();
+        addProductName(productName);
+        addDateOfExpiry(datesOfExpiry);
+        addEntryDates(entryDates);
+        addManufacturerName(manufacturerName);
+        addUnitOfProduct(unitOfProduct);
+        addQuantityOfProduct(quantityOfProduct);
+        addLocationOfProduct(locationOfProduct);
+        addMaxQuantityOfProduct(maxQquantityOfProduct);
+        addProductComment(productComment);
     }
 
-    public static void listDeliveriesForPeriod(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> entryDates) throws ParseException {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the begining date of list (dd/MM/yyyy): ");
-        String beginingDate = input.nextLine();
-        System.out.println("Enter the last date of list (dd/MM/yyyy): ");
-        String endingDate = input.nextLine();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
-        dateFormat.setLenient(false);
-        Date startDate = dateFormat.parse(beginingDate);
-        Date lastDate = dateFormat.parse(endingDate);
-        System.out.println("List of products for period:");
-        System.out.println("Name of product   | Expiry date  | Entry date | Manufacturer | Unit | Stock | Position | Available items at shelf | Comment | ");
-        Date deliverydate = null;
-        for (int i = 0; i <= countDeliveries - 1; i++) {
-            String date = stockAvailability.get(2).get(i);
-            deliverydate = dateFormat.parse(date);
-            if (startDate.before(deliverydate) && lastDate.after(deliverydate)) {
-                for (int j = 0; j < 9; j++) {
 
-                    System.out.print(stockAvailability.get(j).get(i));
-                    System.out.print(" | ");
-                }
-                System.out.println();
-            }
-        }
-    }
-
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
         ArrayList<ArrayList<String>> stockAvailability = new ArrayList<>();
         ArrayList<String> productName = new ArrayList<>();
