@@ -4,9 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
 public class Main {
-
     public static ArrayList<String> addProductName(ArrayList<String> productName) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of product: ");
@@ -18,7 +16,6 @@ public class Main {
             productName.add(name);
         }
         return productName;
-
     }
 
     public static ArrayList<String> addDateOfExpiry(ArrayList<String> datesOfExpiry) {
@@ -169,7 +166,6 @@ public class Main {
         }
     }
 
-
     public static void addNewDilivery(ArrayList<ArrayList<String>> stockAvailability,
                                       ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates, ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                       ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
@@ -210,9 +206,7 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) throws ParseException {
-
         ArrayList<ArrayList<String>> stockAvailability = new ArrayList<>();
         ArrayList<String> productName = new ArrayList<>();
         ArrayList<String> datesOfExpiry = new ArrayList<>();
