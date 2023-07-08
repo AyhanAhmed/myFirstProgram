@@ -4,9 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
 public class Main {
-
     public static ArrayList<String> addProductName(ArrayList<String> productName) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of product: ");
@@ -18,17 +16,16 @@ public class Main {
             productName.add(name);
         }
         return productName;
-
     }
 
     public static ArrayList<String> addDateOfExpiry(ArrayList<String> datesOfExpiry) {
         Scanner input = new Scanner(System.in);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
         dateFormat.setLenient(false);
         Date expirationDate = null;
         boolean validFormat = false;
         do {
-            System.out.println("Enter the expiry date of product (dd-MM-yyyy): ");
+            System.out.println("Enter the expiry date of product (mm/dd/yyyy): ");
             String inputDateOfExpiry = input.nextLine();
             try {
                 expirationDate = dateFormat.parse(inputDateOfExpiry);
@@ -43,13 +40,13 @@ public class Main {
 
     public static ArrayList<String> addEntryDates(ArrayList<String> entryDates) {
         Scanner input = new Scanner(System.in);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
         dateFormat.setLenient(false);
         boolean validFormat = false;
         Date entryDate = null;
         validFormat = false;
         do {
-            System.out.println("Enter the date of dilivery of product (dd-MM-yyyy): ");
+            System.out.println("Enter the date of dilivery of product (mm/dd/yyyy): ");
             String inputEntryDate = input.nextLine();
             try {
                 entryDate = dateFormat.parse(inputEntryDate);
@@ -61,6 +58,7 @@ public class Main {
         entryDates.add(String.format("%tD", entryDate));
         return entryDates;
     }
+
     public static ArrayList<String> addManufacturerName(ArrayList<String> manufacturerName) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of manufacturer of the product: ");
@@ -99,6 +97,7 @@ public class Main {
         quantityOfProduct.add(String.valueOf(quantity));
         return quantityOfProduct;
     }
+
     public static ArrayList<String> addLocationOfProduct(ArrayList<String> locationOfProduct) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the location of the product in the warehouse (section/shelf/number): ");
@@ -169,7 +168,6 @@ public class Main {
         }
     }
 
-
     public static void addNewDilivery(ArrayList<ArrayList<String>> stockAvailability,
                                       ArrayList<String> productName, ArrayList<String> datesOfExpiry, ArrayList<String> entryDates, ArrayList<String> manufacturerName, ArrayList<String> unitOfProduct, ArrayList<String> quantityOfProduct,
                                       ArrayList<String> locationOfProduct, ArrayList<String> maxQquantityOfProduct, ArrayList<String> productComment) {
@@ -183,13 +181,14 @@ public class Main {
         addMaxQuantityOfProduct(maxQquantityOfProduct);
         addProductComment(productComment);
     }
+
     public static void listDeliveriesForPeriod(ArrayList<ArrayList<String>> stockAvailability, int countDeliveries, ArrayList<String> entryDates) throws ParseException {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter the begining date of list (dd/MM/yyyy): ");
+        System.out.println("Enter the begining date of list (mm/dd/yy): ");
         String beginingDate = input.nextLine();
-        System.out.println("Enter the last date of list (dd/MM/yyyy): ");
+        System.out.println("Enter the last date of list (mm/dd/yy): ");
         String endingDate = input.nextLine();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
         dateFormat.setLenient(false);
         Date startDate = dateFormat.parse(beginingDate);
         Date lastDate = dateFormat.parse(endingDate);
@@ -210,9 +209,7 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) throws ParseException {
-
         ArrayList<ArrayList<String>> stockAvailability = new ArrayList<>();
         ArrayList<String> productName = new ArrayList<>();
         ArrayList<String> datesOfExpiry = new ArrayList<>();
@@ -253,6 +250,7 @@ public class Main {
         } while (option != 0);
     }
 }
+
 
 
 
